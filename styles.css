@@ -16,6 +16,7 @@ body {
 a {
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 
 nav {
@@ -35,7 +36,6 @@ nav .brand {
 
 nav .nav-items a {
     margin: 0 1rem;
-    cursor: pointer;
 }
 
 img {

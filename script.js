@@ -9,6 +9,7 @@ const cart = document.getElementById("cart");
 const profile = document.getElementById("profile");
 const login_2 = document.getElementById("login-btn");
 const signup_2 = document.getElementById("signup-btn");
+const logo = document.getElementById("brand");
 
 profile.addEventListener("click", () => {
   alert("Please Login to see your profile");
@@ -31,8 +32,6 @@ signup.addEventListener("click", () => {
 signup_2.addEventListener("click", () => {
   location.href = "./signup";
 });
-
-const logo = document.getElementById("brand");
 
 logo.addEventListener("click", () => {
   if (sessionStorage.getItem("loggedUser")) {
