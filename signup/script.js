@@ -13,7 +13,7 @@ home.addEventListener("click", () => {
   alert("Please Login to go to Home.");
 });
 login.addEventListener("click", () => {
-  window.location.href = "/login/";
+  window.location.href = "/login/index.html";
 });
 
 const signupBtn = document.getElementById("signup-btn");
@@ -81,7 +81,7 @@ function saveUser(fname, lname, mail, pswd) {
 
   alert("Registered Successfully.");
 
-  window.location.href = "/login/";
+  window.location.href = "/login/index.html";
 }
 
 function clearInputValues() {
@@ -93,5 +93,5 @@ function clearInputValues() {
 }
 
 loginRedirect.addEventListener("click", () => {
-  window.location.href = "/login/";
+  window.location.href = "/login/index.html";
 });

@@ -20,14 +20,22 @@ home.addEventListener("click", () => {
   alert("Please Login to go to Home.");
 });
 login.addEventListener("click", () => {
-  location.href = "/login/";
+  location.href = "/login/index.html";
 });
 login_2.addEventListener("click", () => {
-  location.href = "/login/";
+  location.href = "/login/index.html";
 });
 signup.addEventListener("click", () => {
-  location.href = "/signup/";
+  location.href = "/signup/index.html";
 });
 signup_2.addEventListener("click", () => {
-  location.href = "/signup/";
+  location.href = "/signup/index.html";
+});
+
+const logo = document.getElementById("brand");
+
+logo.addEventListener("click", () => {
+  if (sessionStorage.getItem("loggedUser")) {
+    window.location.href = "/shop/index.html";
+  }
 });

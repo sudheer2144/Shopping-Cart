@@ -1,5 +1,10 @@
 // Write your script here
 
+if (!sessionStorage.getItem("loggedUser")) {
+  alert("Login First");
+  window.location.href = "/index.html";
+}
+
 const firstNameElement = document.getElementById("firstName");
 const lastNameElement = document.getElementById("lastName");
 const oldPasswordElement = document.getElementById("old-password");
@@ -21,6 +26,7 @@ saveInfo.addEventListener("click", (event) => {
 
   if (newFirstName === "" || newLastName === "") {
     alert("Invalid Input");
+    return;
   }
 
   currentUser.firstName = newFirstName;
@@ -64,11 +70,13 @@ updatePassword.addEventListener("click", (event) => {
   } else {
     alert("Passowrd is wrong.");
   }
+  resetValues();
 });
 
-logoutBtn.addEventListener("click", () => {
-  sessionStorage.setItem("loggedUser", JSON.stringify(""));
-  location.href = "/";
+logoutBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  sessionStorage.removeItem("loggedUser");
+  window.location.href = "/index.html";
 });
 
 function resetValues() {
@@ -78,8 +86,3 @@ function resetValues() {
   newPasswordElement.value = "";
   confirmPasswordElement.value = "";
 }
-
-logoutBtn.addEventListener("click", () => {
-  sessionStorage.removeItem("loggedUser");
-  window.location.href = "/";
-});

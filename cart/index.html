@@ -14,17 +14,26 @@
         <a href="/">MeShop.</a>
       </div>
       <div class="nav-items">
-        <a id="home">Home</a>
-        <a id="login">Login</a>
-        <a id="signup">Signup</a>
-        <a id="cart">My Cart</a>
-        <a id="profile">Profile</a>
+        <a id="home" href="/shop/index.html">Home</a>
+        <a id="cart" href="/cart/index.html">My Cart</a>
+        <a id="profile" href="/profile/index.html">Profile</a>
       </div>
     </nav>
+    <h1>My Cart</h1>
     <div class="main">
-      <div class="left"></div>
-      <div class="right"></div>
+      <div class="left" id="left">
+        <h1>Cart is Empty...</h1>
+      </div>
+      <div class="right" id="right">
+        <div class="top" id="top"></div>
+        <div class="price" id="price">
+          <p>Total Price:0</p>
+        </div>
+        <div class="bottom" id="bottom">
+          <button class="btn" id="btn">Proceed To Checkout</button>
+        </div>
+      </div>
     </div>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
   </body>
 </html>

@@ -35,18 +35,84 @@ nav .nav-items a {
 
 .main {
     display: flex;
-    border: 2px solid red;
-    width: 100%;
+    width: 80%;
+    margin: auto;
 }
 
-.left {
-    border: 2px solid blue;
-    height: 100vh;
-    flex-basis: 70%;
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+p {
+    margin-top: 0.5rem;
 }
 
 .right {
-    border: 2px solid black;
-    height: 100vh;
-    background-color: aquamarine;
+    height: 80vh;
+    flex-basis: 30%;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    overflow: auto;
+    border-radius: 1rem;
+}
+
+.btn {
+    width: 120px;
+    font-size: 2rem;
+    cursor: pointer;
+    width: fit-content;
+    font-weight: bold;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.left {
+    flex-basis: 70%;
+    display: flex;
+    padding: 1rem 1rem;
+    gap: 1rem;
+}
+
+.item {
+    width: 30%;
+    flex-basis: 18%;
+    text-align: center;
+    height: 24.5rem;
+}
+
+.item img {
+    max-width: 100%;
+    height: 250px;
+}
+
+.item .row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item .info {
+    padding: 1rem;
+}
+
+.item button {
+    width: 100%;
+    border-radius: none;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

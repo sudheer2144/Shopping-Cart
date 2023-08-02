@@ -15,7 +15,7 @@ home.addEventListener("click", () => {
   alert("Please Login to go to Home.");
 });
 signup.addEventListener("click", () => {
-  location.href = "/signup/";
+  location.href = "/signup/index.html";
 });
 
 login.addEventListener("click", (event) => {
@@ -30,12 +30,16 @@ login.addEventListener("click", (event) => {
     let users = JSON.parse(localStorage.getItem("users"));
     if (users) {
       let currentUser = users.find((currentUser) => {
+        if (currentUser.email === email) {
+          console.log(currentUser);
+        }
         return currentUser.email === email;
       });
+
       if (currentUser) {
         if (password === currentUser.password) {
           sessionStorage.setItem("loggedUser", JSON.stringify(currentUser));
-          window.location.href = "/shop/";
+          window.location.href = "/shop/index.html";
           alert("Login Successfull");
         } else {
           alert("Incorrect Password");
