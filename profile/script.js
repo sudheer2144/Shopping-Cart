@@ -2,7 +2,7 @@
 
 if (!sessionStorage.getItem("loggedUser")) {
   alert("Login First");
-  window.location.href = "/index.html";
+  location.href = "../";
 }
 
 const firstNameElement = document.getElementById("firstName");
@@ -76,7 +76,7 @@ updatePassword.addEventListener("click", (event) => {
 logoutBtn.addEventListener("click", (event) => {
   event.preventDefault();
   sessionStorage.removeItem("loggedUser");
-  window.location.href = "/index.html";
+  location.href = "../";
 });
 
 function resetValues() {

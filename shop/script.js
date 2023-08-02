@@ -13,7 +13,7 @@ async function getProducts() {
 function checkLogin() {
   if (!sessionStorage.getItem("loggedUser")) {
     alert("Login First");
-    window.location.href = "/index.html";
+    location.href = "../";
   }
 }
 

@@ -1,6 +1,6 @@
 if (!sessionStorage.getItem("loggedUser")) {
   alert("Login First");
-  window.location.href = "/index.html";
+  location.href = "../";
 }
 
 const products = JSON.parse(localStorage.getItem("products"));

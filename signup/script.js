@@ -13,7 +13,7 @@ home.addEventListener("click", () => {
   alert("Please Login to go to Home.");
 });
 login.addEventListener("click", () => {
-  location.href = "./login";
+  location.href = "../login";
 });
 
 const signupBtn = document.getElementById("signup-btn");
@@ -81,7 +81,7 @@ function saveUser(fname, lname, mail, pswd) {
 
   alert("Registered Successfully.");
 
-  location.href = "./login";
+  location.href = "../login";
 }
 
 function clearInputValues() {
@@ -93,5 +93,5 @@ function clearInputValues() {
 }
 
 loginRedirect.addEventListener("click", () => {
-  location.href = "./login";
+  location.href = "../login";
 });

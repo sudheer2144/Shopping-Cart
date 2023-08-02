@@ -15,7 +15,7 @@ home.addEventListener("click", () => {
   alert("Please Login to go to Home.");
 });
 signup.addEventListener("click", () => {
-  location.href = "/signup/index.html";
+  location.href = "../signup";
 });
 
 login.addEventListener("click", (event) => {
@@ -39,7 +39,7 @@ login.addEventListener("click", (event) => {
       if (currentUser) {
         if (password === currentUser.password) {
           sessionStorage.setItem("loggedUser", JSON.stringify(currentUser));
-          window.location.href = "/shop/index.html";
+          location.href = "../shop";
           alert("Login Successfull");
         } else {
           alert("Incorrect Password");
