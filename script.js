@@ -36,6 +36,8 @@ const logo = document.getElementById("brand");
 
 logo.addEventListener("click", () => {
   if (sessionStorage.getItem("loggedUser")) {
-    window.location.href = "./shop";
+    location.href = "./shop";
+  } else {
+    location.href = "./";
   }
 });
