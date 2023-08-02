@@ -2,10 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Cart</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -15,16 +14,25 @@
       </div>
       <div class="nav-items">
         <a id="home">Home</a>
-        <a id="login">Login</a>
         <a id="signup">Signup</a>
         <a id="cart">My Cart</a>
         <a id="profile">Profile</a>
       </div>
     </nav>
-    <div class="main">
-      <div class="left"></div>
-      <div class="right"></div>
-    </div>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <form>
+      <h1>Login</h1>
+      <br />
+      <input
+        type="email"
+        id="email"
+        class="inputs"
+        placeholder="enter@mail.com"
+      />
+
+      <input type="password" id="password" class="inputs" placeholder="1234" />
+
+      <button type="submit" id="login-btn">Login</button>
+    </form>
   </body>
 </html>

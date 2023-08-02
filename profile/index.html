@@ -10,7 +10,8 @@
     <title>Profile</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -20,6 +21,58 @@
       </p>
     <![endif]-->
 
-    <script src="" async defer></script>
+    <nav>
+      <div class="brand">
+        <a href="/">MeShop.</a>
+      </div>
+      <div class="nav-items">
+        <a id="home" href="/shop/">Home</a>
+        <a id="cart" href="/cart/">My Cart</a>
+      </div>
+    </nav>
+
+    <form>
+      <h1>Update Name</h1>
+
+      <input
+        type="text"
+        id="firstName"
+        class="inputs"
+        placeholder="First Name"
+      />
+
+      <input type="text" id="lastName" class="inputs" placeholder="Last Name" />
+
+      <button type="submit" id="save-info-btn" class="btn">Save Info</button>
+
+      <h1 id="updatePassword">Update Password</h1>
+
+      <input
+        type="password"
+        id="old-password"
+        class="inputs"
+        placeholder="Old Password"
+      />
+
+      <input
+        type="password"
+        id="new-password"
+        class="inputs"
+        placeholder="New Password"
+      />
+
+      <input
+        type="password"
+        id="confirmPassowrd"
+        class="inputs"
+        placeholder="Confirm Password"
+      />
+
+      <button type="submit" id="update-btn" class="btn">Update</button>
+
+      <br />
+
+      <button type="submit" id="logout-btn" class="btn">Logout</button>
+    </form>
   </body>
 </html>
