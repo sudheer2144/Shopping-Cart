@@ -467,23 +467,6 @@ const rangeElement = document.getElementById("range");
 
 rangeElement.addEventListener("input", (event) => {
   let rating = event.target.value;
-  // let items = document.querySelectorAll(".item");
-  // items.forEach((item)=>{
-  //   itemChiledNodes = item.childNodes[3];
-  //   let itemRating;
-  //   if(itemChiledNodes.childNodes.length < 7){
-  //     itemRating = itemChiledNodes.childNodes[3].textContent.substring(8, 11);
-  //   }
-  //   else{
-  //     itemRating = itemChiledNodes.childNodes[5].textContent.substring(8, 11);
-  //   }
-  //   if(itemRating<rating){
-  //     item.style.display="none";
-  //   }
-  //   else {
-  //     item.style.display = "";
-  //   }
-  // });
 
   products.forEach((product) => {
     let ele = document.querySelector(

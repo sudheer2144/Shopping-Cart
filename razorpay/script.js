@@ -20,7 +20,7 @@ function getPrice() {
 function getOrderId() {
   let orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
   if (orderDetails) {
-    return orderDetails.orderId;
+    return orderDetails.id;
   } else {
     alert("Invalid request");
     location.href = "../shop";
@@ -58,7 +58,7 @@ document.getElementById("rzp-button1").onclick = function (e) {
 
 function transaction(response) {
   let paymentId = response.razorpay_payment_id;
-  alert(`Payment Successfull ID : ${paymentId}`);
+  alert(`Payment Successfull ID : ${paymentId} \nOrder ID : ${orderId}`);
   localStorage.removeItem("orderDetails");
   localStorage.removeItem("cartItems");
   location.href = "../shop";

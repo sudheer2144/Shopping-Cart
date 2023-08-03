@@ -6,6 +6,7 @@
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 a {
@@ -37,6 +38,7 @@ nav .nav-items a {
     display: flex;
     width: 80%;
     margin: auto;
+    height: 80vh;
 }
 
 h1 {
@@ -50,7 +52,6 @@ p {
 }
 
 .right {
-    height: 80vh;
     flex-basis: 30%;
     background-color: black;
     color: white;
@@ -58,6 +59,7 @@ p {
     text-align: center;
     overflow: auto;
     border-radius: 1rem;
+    height: auto;
 }
 
 
@@ -66,9 +68,10 @@ p {
     flex-basis: 70%;
     display: flex;
     padding: 1rem 1rem;
+    overflow: auto;
     gap: 1rem;
     flex-wrap: wrap;
-    overflow: auto;
+    height: auto;
 }
 
 .item {
@@ -118,6 +121,7 @@ p {
     align-items: center;
     gap: 0.5rem;
     background-color: #2f2727;
+    margin-top: 1rem;
 }
 
 .item button {
