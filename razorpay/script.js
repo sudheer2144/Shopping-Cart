@@ -9,7 +9,7 @@ function getPrice() {
   if (orderDetails) {
     document.getElementById(
       "amount"
-    ).innerHTML = `Price To Pay: $${orderDetails.amount.toFixed(2)}`;
+    ).innerHTML = `Price To Pay: $${orderDetails.amount}`;
     return orderDetails.amount;
   } else {
     alert("Invalid request");
