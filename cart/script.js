@@ -15,6 +15,8 @@ let totalPrice = 0;
 
 if (cartItems) {
   cartMaker();
+} else {
+  emptyCartMaker();
 }
 
 function cartMaker() {
@@ -53,7 +55,7 @@ function addTocart(product, title) {
 }
 
 function addToPrice(product) {
-  let price = `<p>${product.title}</p><p>$${product.price}</p>`;
+  let price = `<div class="cartList"><p class="oneLine">${product.title}</p><p>$${product.price}</p></div>`;
   return price;
 }
 
@@ -95,7 +97,14 @@ document.addEventListener("click", (event) => {
     cartMaker();
   } else if (event.target.id === "btn") {
     if (totalPrice == 0) {
-      alert("Price should be greater than 0");
+      alert("Your cart is Empty.....");
+    } else {
+      let order = {};
+      order.amount = totalPrice;
+      order.id = generateOrderId();
+      localStorage.setItem("orderDetails", JSON.stringify(order));
+      location.href = "../razorpay";
+      // emptyCartMaker();
     }
   }
 });
@@ -114,11 +123,23 @@ function reducePrice(item) {
 }
 
 function showPrice() {
-  document.getElementById(
-    "price"
-  ).innerHTML = `<p>Total Price : ${totalPrice.toFixed(2)}</p>`;
+  document.querySelector(
+    ".totalPrice"
+  ).innerHTML = `Total Price : $${totalPrice.toFixed(2)}`;
 }
 
 function emptyCartMaker() {
-  document.getElementById("left").innerHTML = "<h1>Cart is Empty...</h1>";
+  document.getElementById("left").innerHTML =
+    "<h1 class=emptyCart>Cart is Empty...</h1>";
+  document.getElementById("right").style.display = "none";
+  localStorage.removeItem("cartItems");
+}
+
+function generateOrderId() {
+  let chars = "1234567890abcdefghijklmnopqrstuvwxyz";
+  let orderId = "";
+  for (let i = 0; i < 10; i++) {
+    orderId += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return orderId;
 }

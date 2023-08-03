@@ -30,9 +30,6 @@ login.addEventListener("click", (event) => {
     let users = JSON.parse(localStorage.getItem("users"));
     if (users) {
       let currentUser = users.find((currentUser) => {
-        if (currentUser.email === email) {
-          console.log(currentUser);
-        }
         return currentUser.email === email;
       });
 
