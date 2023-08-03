@@ -2,9 +2,11 @@ let products;
 
 async function getProducts() {
   checkLogin();
-  let response = await fetch("https://fakestoreapi.com/products");
-  let productsData = await response.json();
-  localStorage.setItem("products", JSON.stringify(productsData));
+  if (!localStorage.getItem("products")) {
+    let response = await fetch("https://fakestoreapi.com/products");
+    let productsData = await response.json();
+    localStorage.setItem("products", JSON.stringify(productsData));
+  }
   getProductsToObject();
   seperateCategories();
   addToItems();
@@ -195,10 +197,13 @@ function addToItems() {
   });
   items[3].innerHTML = jewelItems;
 
+  localStorage.setItem("products", JSON.stringify(products));
+
   addBtnFunction();
 }
 
 let colorsToDisplayArray = [];
+let colorsToDisplayCOunt = 0;
 
 const redCheckBox = document.getElementById("red");
 const blueCheckBox = document.getElementById("blue");
@@ -209,9 +214,11 @@ const whiteCheckBox = document.getElementById("white");
 redCheckBox.addEventListener("click", () => {
   if (redCheckBox.checked) {
     colorsToDisplayArray.push(redCheckBox.id);
+    colorsToDisplayCOunt++;
     checkForColors();
   }
   if (!redCheckBox.checked) {
+    colorsToDisplayCOunt--;
     let ind = colorsToDisplayArray.indexOf(redCheckBox.id);
     [
       colorsToDisplayArray[ind],
@@ -227,10 +234,12 @@ redCheckBox.addEventListener("click", () => {
 
 blueCheckBox.addEventListener("click", () => {
   if (blueCheckBox.checked) {
+    colorsToDisplayCOunt++;
     colorsToDisplayArray.push(blueCheckBox.id);
     checkForColors();
   }
   if (!blueCheckBox.checked) {
+    colorsToDisplayCOunt--;
     let ind = colorsToDisplayArray.indexOf(blueCheckBox.id);
     [
       colorsToDisplayArray[ind],
@@ -246,10 +255,12 @@ blueCheckBox.addEventListener("click", () => {
 
 greenCheckBox.addEventListener("click", () => {
   if (greenCheckBox.checked) {
+    colorsToDisplayCOunt++;
     colorsToDisplayArray.push(greenCheckBox.id);
     checkForColors();
   }
   if (!greenCheckBox.checked) {
+    colorsToDisplayCOunt--;
     let ind = colorsToDisplayArray.indexOf(greenCheckBox.id);
     [
       colorsToDisplayArray[ind],
@@ -265,10 +276,12 @@ greenCheckBox.addEventListener("click", () => {
 
 blackCheckBox.addEventListener("click", () => {
   if (blackCheckBox.checked) {
+    colorsToDisplayCOunt++;
     colorsToDisplayArray.push(blackCheckBox.id);
     checkForColors();
   }
   if (!blackCheckBox.checked) {
+    colorsToDisplayCOunt--;
     let ind = colorsToDisplayArray.indexOf(blackCheckBox.id);
     [
       colorsToDisplayArray[ind],
@@ -284,10 +297,12 @@ blackCheckBox.addEventListener("click", () => {
 
 whiteCheckBox.addEventListener("click", () => {
   if (whiteCheckBox.checked) {
+    colorsToDisplayCOunt++;
     colorsToDisplayArray.push(whiteCheckBox.id);
     checkForColors();
   }
   if (!whiteCheckBox.checked) {
+    colorsToDisplayCOunt--;
     let ind = colorsToDisplayArray.indexOf(whiteCheckBox.id);
     [
       colorsToDisplayArray[ind],
@@ -303,8 +318,6 @@ whiteCheckBox.addEventListener("click", () => {
 
 let sizesToDisplayArray = [];
 
-let checkSizesCount = 0;
-
 const sSize = document.getElementById("s");
 const mSize = document.getElementById("m");
 const lSize = document.getElementById("l");
@@ -313,11 +326,9 @@ const xlSize = document.getElementById("xl");
 sSize.addEventListener("click", () => {
   if (sSize.checked) {
     sizesToDisplayArray.push(sSize.id);
-    checkSizesCount++;
     checkForSizes();
   }
   if (!sSize.checked) {
-    checkSizesCount--;
     let ind = sizesToDisplayArray.indexOf(sSize.id);
     [
       sizesToDisplayArray[ind],
@@ -328,18 +339,15 @@ sSize.addEventListener("click", () => {
     ];
     sizesToDisplayArray.pop();
     checkForSizes();
-    checkIfCheckBoxesClear();
   }
 });
 
 mSize.addEventListener("click", () => {
   if (mSize.checked) {
-    checkSizesCount++;
     sizesToDisplayArray.push(mSize.id);
     checkForSizes();
   }
   if (!mSize.checked) {
-    checkSizesCount--;
     let ind = sizesToDisplayArray.indexOf(mSize.id);
     [
       sizesToDisplayArray[ind],
@@ -350,18 +358,15 @@ mSize.addEventListener("click", () => {
     ];
     sizesToDisplayArray.pop();
     checkForSizes();
-    checkIfCheckBoxesClear();
   }
 });
 
 lSize.addEventListener("click", () => {
   if (lSize.checked) {
-    checkSizesCount++;
     sizesToDisplayArray.push(lSize.id);
     checkForSizes();
   }
   if (!lSize.checked) {
-    checkSizesCount--;
     let ind = sizesToDisplayArray.indexOf(lSize.id);
     [
       sizesToDisplayArray[ind],
@@ -372,18 +377,15 @@ lSize.addEventListener("click", () => {
     ];
     sizesToDisplayArray.pop();
     checkForSizes();
-    checkIfCheckBoxesClear();
   }
 });
 
 xlSize.addEventListener("click", () => {
   if (xlSize.checked) {
-    checkSizesCount++;
     sizesToDisplayArray.push(xlSize.id);
     checkForSizes();
   }
   if (!xlSize.checked) {
-    checkSizesCount--;
     let ind = sizesToDisplayArray.indexOf(xlSize.id);
     [
       sizesToDisplayArray[ind],
@@ -394,7 +396,6 @@ xlSize.addEventListener("click", () => {
     ];
     sizesToDisplayArray.pop();
     checkForSizes();
-    checkIfCheckBoxesClear();
   }
 });
 
@@ -409,6 +410,7 @@ function checkForColors() {
     hideNonClothes();
   } else {
     addToItems();
+    ShowNonClothes();
   }
 }
 
@@ -435,6 +437,7 @@ function checkForSizes() {
     hideNonClothes();
   } else {
     addToItems();
+    ShowNonClothes();
   }
 }
 
@@ -448,13 +451,6 @@ function addItemsToListSizes(list) {
     });
   }
   return resList;
-}
-
-function checkIfCheckBoxesClear() {
-  if (checkSizesCount == 0) {
-    addToItems();
-    ShowNonClothes();
-  }
 }
 
 function hideNonClothes() {

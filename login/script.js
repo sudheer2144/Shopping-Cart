@@ -43,12 +43,20 @@ login.addEventListener("click", (event) => {
           alert("Login Successfull");
         } else {
           alert("Incorrect Password");
+          resetValues();
         }
       } else {
         alert("Can't find account with given details.");
+        resetValues();
       }
     } else {
       alert("Can't find account with given details.");
+      resetValues();
     }
   }
 });
+
+function resetValues() {
+  let email = (document.getElementById("email").value = "");
+  let password = (document.getElementById("password").value = "");
+}
