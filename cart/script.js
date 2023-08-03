@@ -100,7 +100,7 @@ document.addEventListener("click", (event) => {
       alert("Your cart is Empty.....");
     } else {
       let order = {};
-      order.amount = totalPrice;
+      order.amount = totalPrice.toFixed(2);
       order.id = generateOrderId();
       localStorage.setItem("orderDetails", JSON.stringify(order));
       location.href = "../razorpay";
